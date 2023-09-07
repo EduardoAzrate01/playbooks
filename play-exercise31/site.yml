@@ -1,0 +1,22 @@
+---
+- name: Play to install/configure  httpd service
+  hosts: webservers
+  tasks:
+
+  - name: Ensure that is installed httpd
+    ansible.builtin.yum:
+      name: httpd
+      state: present
+
+  - name: Ensure if fiile exist index.html
+    ansible.builtin.copy:
+      src: files/index.html
+      dest: /var/www/html/intex.html
+
+   
+  - name: Start httpd service
+    ansible.builtin.service:
+      name: httpd
+      state: started
+      enabled: true
+
