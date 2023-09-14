@@ -1,0 +1,6 @@
+[control]
+localhost ansible_connection=local
+
+[devservers]
+node1
+node2

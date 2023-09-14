@@ -1,0 +1,16 @@
+---
+- name: Generate password
+  hosts: devservers
+  become: true
+  vars_files:
+    - secret.yml
+  tasks:
+
+  # task create user with papssword
+  - name: create user account
+    ansible.builtin.user:
+      name: "{{ username }}"
+      password: "{{ password  }}"
+      shell: /bin/bash
+      state: present
+     
