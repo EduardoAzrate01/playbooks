@@ -1,0 +1,11 @@
+---
+- name: Use the file module to remoce a file
+  hosts: servers
+  become: false
+  tasks:
+
+    - name: Remove a file fro managed hosts 
+      ansible.builtin.file:
+        path: /home/automation/users.txt
+        state: absent
+
